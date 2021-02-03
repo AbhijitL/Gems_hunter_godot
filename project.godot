@@ -16,19 +16,22 @@ _global_script_class_icons={
 [application]
 
 config/name="Gems Hunter"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=84
-window/size/height=84
-window/stretch/mode="2d"
+window/size/width=840
+window/size/height=480
+window/size/resizable=false
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/filters/use_nearest_mipmap_filter=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
