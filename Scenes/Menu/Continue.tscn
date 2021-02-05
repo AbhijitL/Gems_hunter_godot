@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Menu/Menu.tres" type="Theme" id=1]
+
+[node name="Continue" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 84.0
+margin_bottom = 48.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.0
+margin_top = 7.0
+margin_right = 27.0
+margin_bottom = 18.0
+custom_colors/default_color = Color( 0.262745, 0.321569, 0.239216, 1 )
+bbcode_enabled = true
+bbcode_text = "[wave  amp=5 freq=10] Press Enter[/wave]"
+text = " Press Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.0
+margin_top = 9.0
+margin_right = 31.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.262745, 0.321569, 0.239216, 1 )
+text = "Gems Hunter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
