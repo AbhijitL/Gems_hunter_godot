@@ -48,7 +48,7 @@ tracks/0/keys = {
 "values": [ 21, 22, 23, 24, 25, 26, 27 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "rest"
 length = 0.001
 tracks/0/type = "value"
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "values": [ 10 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -99,8 +99,8 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
-anims/rest = SubResource( 6 )
-anims/run = SubResource( 5 )
+anims/rest = SubResource( 5 )
+anims/run = SubResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -12 )
