@@ -3,7 +3,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Shaders/dither.shader" type="Shader" id=2]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/scale = 128.0
 
@@ -18,7 +18,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="Sprite" parent="Control"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 147.022, 171.513 )
 rotation = 3.92978
 scale = Vector2( 3.11018, -2.88675 )

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Enemy/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Enemy/enemy1_sprite.png" type="Texture" id=2]
+
+[node name="CommonEnemy" instance=ExtResource( 1 )]
+position = Vector2( -1, -8 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 4, 2 )
+scale = Vector2( 4.5, 4.25 )
+texture = ExtResource( 2 )
+hframes = 3
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 4, 8 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 4, 4 )
