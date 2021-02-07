@@ -13,6 +13,9 @@ onready var floor_right : RayCast2D = $FloorRight;
 onready var wall_left : RayCast2D = $WallLeft;
 onready var wall_right : RayCast2D = $WallRight;
 
+func _init():
+	Max_Speed = 8;
+
 func _ready():
 	state = WALKING_DIRECTION;
 	

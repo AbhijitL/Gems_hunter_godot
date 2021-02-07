@@ -138,6 +138,7 @@ func update_stamina(amnt:int):
 func _attack():
 	if !staminaDB.stamina <= 0:
 		axe.visible = true;
+		axe.play_anim();
 		staminaDB.deplete_stamina(50);
 		var stamina : int = staminaDB.stamina;
 		ui._update_stamina_ui(stamina);

@@ -9,7 +9,6 @@ shader = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -49,7 +48,6 @@ offset = Vector2( 5, 1 )
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "attack_anim"
 anims/attack_anim = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -58,3 +56,4 @@ anims/attack_anim = SubResource( 2 )
 position = Vector2( 10, 1 )
 shape = SubResource( 3 )
 disabled = true
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

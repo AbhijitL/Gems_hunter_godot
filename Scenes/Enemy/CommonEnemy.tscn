@@ -23,7 +23,6 @@ tracks/0/keys = {
 
 [node name="CommonEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-Max_Speed = 5
 WALKING_DIRECTION = 1
 
 [node name="Area2D" parent="." index="0"]
