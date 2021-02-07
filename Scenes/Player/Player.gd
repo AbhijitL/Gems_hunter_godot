@@ -9,6 +9,7 @@ export(int) var GRAVITY = 200;
 export(int) var Max_SLOPE_ANGLE = 46;
 export(int) var JUMP_FORCE = 128;
 
+onready var global = get_node("/root/Global");
 
 var motion : Vector2 = Vector2.ZERO;
 var snap_vector : Vector2 = Vector2.ZERO;
@@ -20,6 +21,8 @@ onready var sprite_animator : AnimationPlayer = $AnimationPlayer;
 onready var cjump_timer : Timer = $CJump;
 onready var ui = $UINODE/UI2;
 onready var recharge_timer : Timer = $RechargeTimer;
+onready var win_dead : Control = $UINODE/WinDead;
+onready var win_dead_timer : Timer = $WinDeadTimer;
 
 var self_pause : bool = false;
 
@@ -29,6 +32,7 @@ var coinDB : CoinClass = CoinClass.new();
 var staminaDB : StaminaClass = StaminaClass.new();
 
 func _ready():
+	print(global.get_global_coin());
 	health_update(healthDB.default_health());
 	update_stamina(staminaDB.default_stamina());
 	if axe.visible:
@@ -130,10 +134,21 @@ func health_update(amnt : int):
 func coin_update(amnt:int):
 	coinDB.update_coin(amnt);
 	$Jems/CoinLabel.text = str(coinDB.coin);
+	global._update_global_coin(1);
+
 
 func update_stamina(amnt:int):
 	staminaDB.update_stamina(amnt);
 	print(staminaDB.stamina);
+
+func check_am_i_dead():
+	if healthDB.health <= 0:
+		self_pause = true;
+		win_dead.visible = true;
+		win_dead_timer.start();
+		global._update_death_count(1);
+		global._update_global_coin(0);
+
 
 func _attack():
 	if !staminaDB.stamina <= 0:
@@ -156,3 +171,7 @@ func _on_RechargeTimer_timeout():
 	ui._update_stamina_ui(staminaDB.stamina);
 	self_pause = false;
 	VisualServer.set_default_clear_color(Color("#c7f0d8"));
+
+
+func _on_WinDeadTimer_timeout():
+	get_tree().reload_current_scene();

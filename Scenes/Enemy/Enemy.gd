@@ -1,7 +1,6 @@
 extends KinematicBody2D
 class_name Enemy
 
-onready var coin = preload("res://Scenes/Coin/BaseCoin.tscn");
 
 var damage_points : int = 1;
 var enemy_health : int = 2;
@@ -24,14 +23,9 @@ func _on_Area2D_body_entered(body):
 		print("Bruhhh")
 		if !body.healthDB.health == 0:
 			body.health_update(body.healthDB.deplete_health(damage_points));
+			body.check_am_i_dead();
 			queue_free();
-
-func _loot():
-	var coin_inst = coin.instance();
-	coin_inst.global_position = global_position;
-	get_tree().get_root().add_child(coin_inst);
 
 func check_am_i_dead():
 	if healthDB.health <=0:
-		_loot();
 		queue_free();

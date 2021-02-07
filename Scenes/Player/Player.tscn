@@ -82,7 +82,7 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-JUMP_FORCE = 100
+JUMP_FORCE = 110
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
@@ -121,6 +121,44 @@ margin_top = -37.0
 margin_right = 42.0
 margin_bottom = 11.0
 
+[node name="WinDead" type="Control" parent="UINODE"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -42.0
+margin_top = -37.0
+margin_right = 42.0
+margin_bottom = 11.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UINODE/WinDead"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.780392, 0.941176, 0.847059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="UINODE/WinDead/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dead" type="Label" parent="UINODE/WinDead/ColorRect/CenterContainer"]
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 66.0
+margin_bottom = 42.0
+theme = ExtResource( 7 )
+custom_colors/font_color = Color( 0.262745, 0.321569, 0.239216, 1 )
+text = "
+Dead
+Try Again"
+align = 1
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../UINODE")
 
@@ -156,4 +194,9 @@ __meta__ = {
 [node name="RechargeTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="WinDeadTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]
+[connection signal="timeout" from="WinDeadTimer" to="." method="_on_WinDeadTimer_timeout"]
